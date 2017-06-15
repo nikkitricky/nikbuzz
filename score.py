@@ -70,8 +70,11 @@ def gotolive(matchid):
     if (bowlobj['score'] == []):
         print "1st INNINGS: "+str(batobj['team'])+" => "+str(batobj['score'][0]['runs'])+"/"+str(batobj['score'][0]['wickets'])+" ("+str(batobj['score'][0]['overs'])+" Overs)"
         print "Batting:"
-        print "    " + str(batobj['batsman'][0]['name']) + " : " + str(batobj['batsman'][0]['runs']) + " (" + str(batobj['batsman'][0]['balls']) + ")"
-        print "    " + str(batobj['batsman'][1]['name']) + " : " + str(batobj['batsman'][1]['runs']) + " (" + str(batobj['batsman'][1]['balls']) + ")"
+        try:
+            print "    " + str(batobj['batsman'][0]['name']) + " : " + str(batobj['batsman'][0]['runs']) + " (" + str(batobj['batsman'][0]['balls']) + ")"
+            print "    " + str(batobj['batsman'][1]['name']) + " : " + str(batobj['batsman'][1]['runs']) + " (" + str(batobj['batsman'][1]['balls']) + ")"
+        except:
+            print "Hurray.. Its out..!! "
         print "Bowling:"
         print "    " + str(bowlobj['bowler'][0]['name']) + " : " + str(bowlobj['bowler'][0]['runs']) + " /" + str(bowlobj['bowler'][0]['wickets']) + " (" + str(bowlobj['bowler'][0]['overs']) + ")"
         print "    " + str(bowlobj['bowler'][1]['name']) + " : " + str(bowlobj['bowler'][1]['runs']) + " /" + str(bowlobj['bowler'][1]['wickets']) + " (" + str(bowlobj['bowler'][1]['overs']) + ")"
@@ -81,8 +84,11 @@ def gotolive(matchid):
         print "1st INNINGS: "+str(bowlobj['team'])+" => "+str(bowlobj['score'][0]['runs'])+"/"+str(bowlobj['score'][0]['wickets'])+" ("+str(bowlobj['score'][0]['overs'])+" Overs)"
         print "2nd INNINGS: "+str(batobj['team'])+" => "+str(batobj['score'][0]['runs'])+"/"+str(batobj['score'][0]['wickets'])+" ("+str(batobj['score'][0]['overs'])+" Overs)"
         print "Batting:"
-        print "    "+str(batobj['batsman'][0]['name'])+" : "+str(batobj['batsman'][0]['runs'])+" ("+str(batobj['batsman'][0]['balls'])+")"
-        print "    " + str(batobj['batsman'][1]['name']) + " : " + str(batobj['batsman'][1]['runs']) + " (" + str(batobj['batsman'][1]['balls']) + ")"
+        try:
+            print "    "+str(batobj['batsman'][0]['name'])+" : "+str(batobj['batsman'][0]['runs'])+" ("+str(batobj['batsman'][0]['balls'])+")"
+            print "    " + str(batobj['batsman'][1]['name']) + " : " + str(batobj['batsman'][1]['runs']) + " (" + str(batobj['batsman'][1]['balls']) + ")"
+        except:
+            print "Hurray.. Its out..!! "
         print "Bowling:"
         print "    " + str(bowlobj['bowler'][0]['name']) + " : " + str(bowlobj['bowler'][0]['runs'])+" /"+str(bowlobj['bowler'][0]['wickets']) + " (" + str(bowlobj['bowler'][0]['overs']) + ")"
         print "    " + str(bowlobj['bowler'][1]['name']) + " : " + str(bowlobj['bowler'][1]['runs']) + " /" + str(bowlobj['bowler'][1]['wickets']) + " (" + str(bowlobj['bowler'][1]['overs']) + ")"
