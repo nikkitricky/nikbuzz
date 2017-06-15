@@ -30,7 +30,8 @@ def upcomingmatches():
         if match['mchstate'] == "preview":
             print str(count)+". "+str(match['mchdesc'])+ " - "+ str(match['srs'])+"- - "+str(match['status'])
             count = count + 1
-
+        if match['mchstate'] == "delay":
+            print str(match['mchdesc'])+" -> match has been delayed due to rain..! Enjoy the drizzle..!!"
 def currentlive():
     """Prints Current LIVE MATCHES"""
     count = 1
