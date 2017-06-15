@@ -39,7 +39,11 @@ def currentlive():
     """Prints Current LIVE MATCHES"""
     count = 1
     for match in matches:
-        if match['mchstate'] == "inprogress":
+        #print str(match['mchdesc']) + "      match id: " + str(match['mchstate'])
+        if (match['mchstate'] == "innings break" ) :
+            print str(match['mchdesc'])+"      match id: "+str(match['id'])
+            count = count + 1
+        if (match['mchstate'] == "inprogress" ) :
             print str(match['mchdesc'])+"      match id: "+str(match['id'])
             count = count + 1
         if match['mchstate'] == "delay":
@@ -68,6 +72,7 @@ def gotolive(matchid):
     batobj = cric_obj.livescore(matchid)['batting']
     bowlobj = cric_obj.livescore(matchid)['bowling']
     print "\n                "+str(batobj['team'])+" vs "+str(bowlobj['team'])+"\n"
+    print "     "+str(cric_obj.livescore(matchid)['matchinfo']['status'])+"\n"
     if (bowlobj['score'] == []):
         print "1st INNINGS: "+str(batobj['team'])+" => "+str(batobj['score'][0]['runs'])+"/"+str(batobj['score'][0]['wickets'])+" ("+str(batobj['score'][0]['overs'])+" Overs)"
         print "Batting:"
