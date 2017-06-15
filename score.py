@@ -55,7 +55,10 @@ def currentlive():
 def calculate_runrate(runs, overs):
     balls = str(overs)
     arr = balls.split('.')
-    rr = float(int(arr[0])*6)+int(arr[1])
+    if len(arr) == 2:
+        rr = float(int(arr[0])*6)+int(arr[1])
+    else:
+        rr = float(int(arr[0])*6)
     return (float(runs)/rr)*6
 
 
