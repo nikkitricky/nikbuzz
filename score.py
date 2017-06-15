@@ -76,6 +76,4 @@ def gotolive(matchid):
         print "    " + str(cric_obj.livescore(4)['matchinfo']['status'])
 
 
-
-print "\nucha aaguthaledha ??\n\n"
 currentlive()
