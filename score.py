@@ -39,7 +39,7 @@ def currentlive():
     """Prints Current LIVE MATCHES"""
     count = 1
     for match in matches:
-        if match['mchstate'] == "nextlive":
+        if match['mchstate'] == "inprogress":
             print str(match['mchdesc'])+" -> "+str(match['id'])
             count = count + 1
         if match['mchstate'] == "delay":
