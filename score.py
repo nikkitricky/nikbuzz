@@ -1,3 +1,7 @@
+"""
+    @authors: Nishanth and Nikhith !! 
+
+"""
 from pycricbuzz import Cricbuzz
 import sys
 """ Writing a CLI for Live score """
@@ -30,16 +34,18 @@ def upcomingmatches():
         if match['mchstate'] == "preview":
             print str(count)+". "+str(match['mchdesc'])+ " - "+ str(match['srs'])+"- - "+str(match['status'])
             count = count + 1
-        if match['mchstate'] == "delay":
-            print str(match['mchdesc'])+" -> match has been delayed due to rain..! Enjoy the drizzle..!!"
+        
 def currentlive():
     """Prints Current LIVE MATCHES"""
     count = 1
     for match in matches:
         if match['mchstate'] == "nextlive":
             print str(match['mchdesc'])+" -> "+str(match['id'])
+            count = count + 1
+        if match['mchstate'] == "delay":
+            print str(match['mchdesc'])+" -> match has been delayed due to rain..! Enjoy the drizzle..!!"
     if count == 1:
-        print "NO LIVE MATCHES RIGHT NOW!\n"
+        print "\nNO LIVE MATCHES RIGHT NOW!\n"
         print "UPCOMING MATCHES TODAY!"
         upcomingmatches()
     else:
