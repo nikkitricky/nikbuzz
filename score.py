@@ -49,7 +49,7 @@ def currentlive():
         print "UPCOMING MATCHES TODAY!"
         upcomingmatches()
     else:
-        id = input("Enter match id")
+        id = input("Enter match id : ")
         gotolive(id)
 
 
@@ -68,7 +68,7 @@ def gotolive(matchid):
         print "Bowling:"
         print "    " + str(bowlobj['bowler'][0]['name']) + " : " + str(bowlobj['bowler'][0]['runs']) + " /" + str(bowlobj['bowler'][0]['wickets']) + " (" + str(bowlobj['bowler'][0]['overs']) + ")"
         print "    " + str(bowlobj['bowler'][1]['name']) + " : " + str(bowlobj['bowler'][1]['runs']) + " /" + str(bowlobj['bowler'][1]['wickets']) + " (" + str(bowlobj['bowler'][1]['overs']) + ")"
-        print "Summary:"
+        print "Runrate:"
         print '    {:1.2f}'.format(calculate_runrate(str(batobj['score'][0]['runs']),str(batobj['score'][0]['overs'])))
     else:
         print "1st INNINGS: "+str(bowlobj['team'])+" => "+str(bowlobj['score'][0]['runs'])+"/"+str(bowlobj['score'][0]['wickets'])+" ("+str(bowlobj['score'][0]['overs'])+" Overs)"
