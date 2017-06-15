@@ -1,6 +1,5 @@
 """
     @authors: Nishanth and Nikhith !!
-
 """
 from pycricbuzz import Cricbuzz
 import sys
@@ -56,12 +55,8 @@ def currentlive():
 def calculate_runrate(runs, overs):
     balls = str(overs)
     arr = balls.split('.')
-    rr = (int(arr[0])*6)+int(arr[1])
-    runs = float(runs)
-    rr = float(rr)
-    netrr = runs/rr
-    netrr *=6
-    print '{:1.2f}'.format(netrr)
+    rr = float(int(arr[0])*6)+int(arr[1])
+    return (float(runs)/rr)*6
 
 
 def gotolive(matchid):
@@ -78,7 +73,7 @@ def gotolive(matchid):
         print "    " + str(bowlobj['bowler'][0]['name']) + " : " + str(bowlobj['bowler'][0]['runs']) + " /" + str(bowlobj['bowler'][0]['wickets']) + " (" + str(bowlobj['bowler'][0]['overs']) + ")"
         print "    " + str(bowlobj['bowler'][1]['name']) + " : " + str(bowlobj['bowler'][1]['runs']) + " /" + str(bowlobj['bowler'][1]['wickets']) + " (" + str(bowlobj['bowler'][1]['overs']) + ")"
         print "Runrate:"
-        (calculate_runrate(str(batobj['score'][0]['runs']),str(batobj['score'][0]['overs'])))
+        print '    {:1.2f}'.format(calculate_runrate(str(batobj['score'][0]['runs']),str(batobj['score'][0]['overs'])))
     else:
         print "1st INNINGS: "+str(bowlobj['team'])+" => "+str(bowlobj['score'][0]['runs'])+"/"+str(bowlobj['score'][0]['wickets'])+" ("+str(bowlobj['score'][0]['overs'])+" Overs)"
         print "2nd INNINGS: "+str(batobj['team'])+" => "+str(batobj['score'][0]['runs'])+"/"+str(batobj['score'][0]['wickets'])+" ("+str(batobj['score'][0]['overs'])+" Overs)"
@@ -91,5 +86,6 @@ def gotolive(matchid):
         print "Summary:"
         print "    " + str(cric_obj.livescore(4)['matchinfo']['status'])
 
-
-currentlive()
+while True:
+    currentlive()
+    print '\n' * 3
