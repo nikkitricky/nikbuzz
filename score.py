@@ -1,5 +1,6 @@
 """
     @authors: Nishanth and Nikhith !!
+    Version: 1.1.19
 """
 from pycricbuzz import Cricbuzz
 import json
