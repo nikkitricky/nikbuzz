@@ -60,7 +60,7 @@ def gotolive(matchid):
     batobj = cric_obj.livescore(matchid)['batting']
     bowlobj = cric_obj.livescore(matchid)['bowling']
     print "          "+str(batobj['team'])+" vs "+str(bowlobj['team'])+"\n"
-    if bowlobj['score'][0]['overs'] == "0":
+    if (bowlobj['score'] == []):
         print "1st INNINGS: "+str(batobj['team'])+" => "+str(batobj['score'][0]['runs'])+"/"+str(batobj['score'][0]['wickets'])+" ("+str(batobj['score'][0]['overs'])+" Overs)"
         print "Batting:"
         print "    " + str(batobj['batsman'][0]['name']) + " : " + str(batobj['batsman'][0]['runs']) + " (" + str(batobj['batsman'][0]['balls']) + ")"
