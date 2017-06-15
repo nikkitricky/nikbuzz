@@ -100,7 +100,7 @@ def gotolive(matchid):
         print "    " + str(bowlobj['bowler'][0]['name']) + " : " + str(bowlobj['bowler'][0]['runs'])+" /"+str(bowlobj['bowler'][0]['wickets']) + " (" + str(bowlobj['bowler'][0]['overs']) + ")"
         print "    " + str(bowlobj['bowler'][1]['name']) + " : " + str(bowlobj['bowler'][1]['runs']) + " /" + str(bowlobj['bowler'][1]['wickets']) + " (" + str(bowlobj['bowler'][1]['overs']) + ")"
         print "Summary:"
-        print "    " + str(cric_obj.livescore(4)['matchinfo']['status'])
+        print "    " + str(cric_obj.livescore(matchid)['matchinfo']['status'])
 
 
 def last12Balls():
