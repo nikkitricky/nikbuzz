@@ -1,6 +1,5 @@
 """
     @authors: Nishanth and Nikhith !!
-    Version: 1.1.19
 """
 from pycricbuzz import Cricbuzz
 import json
@@ -10,7 +9,7 @@ try:
     cric_obj = Cricbuzz() # cric_obj contains object instance of Cricbuzz Class
     matches = cric_obj.matches()
 except:
-    print "Please check your Internet connection..!"
+    print "Connection dengindi bey!"
     sys.exit(0)
 
  # matches func is returning List of dictionaries
@@ -56,6 +55,7 @@ def currentlive():
     else:
         id = input("Enter corresponding match id : ")
         gotolive(id)
+        return id
 
 
 def calculate_runrate(runs, overs):
@@ -106,14 +106,14 @@ def gotolive(matchid):
 def last12Balls():
     pass
 
-def commentary():
+def commentary(matchid):
     print "Commentary: "
     for i in range(6):
-        print "     "+str(cric_obj.commentary(2)['commentary'][i])
+        print "     "+str(cric_obj.commentary(matchid)['commentary'][i])
     print "***************************************************************************************************"
 if __name__ == '__main__':
-    currentlive()
-    commentary()
+    matchid=currentlive()
+    commentary(matchid)
 
 
 
