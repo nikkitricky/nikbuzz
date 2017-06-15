@@ -2,6 +2,7 @@
     @authors: Nishanth and Nikhith !!
 """
 from pycricbuzz import Cricbuzz
+import json
 import sys
 """ Writing a CLI for Live score """
 try:
@@ -39,7 +40,7 @@ def currentlive():
     count = 1
     for match in matches:
         if match['mchstate'] == "inprogress":
-            print str(match['mchdesc'])+"      match id :"+str(match['id'])
+            print str(match['mchdesc'])+"      match id: "+str(match['id'])
             count = count + 1
         if match['mchstate'] == "delay":
             print str(match['mchdesc'])+" -> match has been delayed due to rain..! Enjoy the drizzle..!!"
@@ -48,7 +49,7 @@ def currentlive():
         print "UPCOMING MATCHES TODAY!"
         upcomingmatches()
     else:
-        id = input("Enter match id : ")
+        id = input("Enter corresponding match id : ")
         gotolive(id)
 
 
@@ -66,7 +67,7 @@ def gotolive(matchid):
 
     batobj = cric_obj.livescore(matchid)['batting']
     bowlobj = cric_obj.livescore(matchid)['bowling']
-    print "          "+str(batobj['team'])+" vs "+str(bowlobj['team'])+"\n"
+    print "\n                "+str(batobj['team'])+" vs "+str(bowlobj['team'])+"\n"
     if (bowlobj['score'] == []):
         print "1st INNINGS: "+str(batobj['team'])+" => "+str(batobj['score'][0]['runs'])+"/"+str(batobj['score'][0]['wickets'])+" ("+str(batobj['score'][0]['overs'])+" Overs)"
         print "Batting:"
@@ -74,7 +75,7 @@ def gotolive(matchid):
             print "    " + str(batobj['batsman'][0]['name']) + " : " + str(batobj['batsman'][0]['runs']) + " (" + str(batobj['batsman'][0]['balls']) + ")"
             print "    " + str(batobj['batsman'][1]['name']) + " : " + str(batobj['batsman'][1]['runs']) + " (" + str(batobj['batsman'][1]['balls']) + ")"
         except:
-            print "Hurray.. Its out..!! "
+            print "Wicket!!!!"
         print "Bowling:"
         print "    " + str(bowlobj['bowler'][0]['name']) + " : " + str(bowlobj['bowler'][0]['runs']) + " /" + str(bowlobj['bowler'][0]['wickets']) + " (" + str(bowlobj['bowler'][0]['overs']) + ")"
         print "    " + str(bowlobj['bowler'][1]['name']) + " : " + str(bowlobj['bowler'][1]['runs']) + " /" + str(bowlobj['bowler'][1]['wickets']) + " (" + str(bowlobj['bowler'][1]['overs']) + ")"
@@ -88,13 +89,25 @@ def gotolive(matchid):
             print "    "+str(batobj['batsman'][0]['name'])+" : "+str(batobj['batsman'][0]['runs'])+" ("+str(batobj['batsman'][0]['balls'])+")"
             print "    " + str(batobj['batsman'][1]['name']) + " : " + str(batobj['batsman'][1]['runs']) + " (" + str(batobj['batsman'][1]['balls']) + ")"
         except:
-            print "Hurray.. Its out..!! "
+            print "Wicket!!"
         print "Bowling:"
         print "    " + str(bowlobj['bowler'][0]['name']) + " : " + str(bowlobj['bowler'][0]['runs'])+" /"+str(bowlobj['bowler'][0]['wickets']) + " (" + str(bowlobj['bowler'][0]['overs']) + ")"
         print "    " + str(bowlobj['bowler'][1]['name']) + " : " + str(bowlobj['bowler'][1]['runs']) + " /" + str(bowlobj['bowler'][1]['wickets']) + " (" + str(bowlobj['bowler'][1]['overs']) + ")"
         print "Summary:"
         print "    " + str(cric_obj.livescore(4)['matchinfo']['status'])
 
-while True:
+
+def last12Balls():
+    pass
+
+def commentary():
+    print "Commentary: "
+    for i in range(6):
+        print "     "+str(cric_obj.commentary(2)['commentary'][i])
+    print "***************************************************************************************************"
+if __name__ == '__main__':
     currentlive()
-    print '\n' * 3
+    commentary()
+
+
+
