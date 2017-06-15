@@ -39,7 +39,7 @@ def currentlive():
     count = 1
     for match in matches:
         if match['mchstate'] == "inprogress":
-            print str(match['mchdesc'])+" -> "+str(match['id'])
+            print str(match['mchdesc'])+"      match id :"+str(match['id'])
             count = count + 1
         if match['mchstate'] == "delay":
             print str(match['mchdesc'])+" -> match has been delayed due to rain..! Enjoy the drizzle..!!"
