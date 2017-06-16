@@ -100,20 +100,20 @@ def gotolive(matchid):
         print "    " + str(bowlobj['bowler'][0]['name']) + " : " + str(bowlobj['bowler'][0]['runs'])+" /"+str(bowlobj['bowler'][0]['wickets']) + " (" + str(bowlobj['bowler'][0]['overs']) + ")"
         print "    " + str(bowlobj['bowler'][1]['name']) + " : " + str(bowlobj['bowler'][1]['runs']) + " /" + str(bowlobj['bowler'][1]['wickets']) + " (" + str(bowlobj['bowler'][1]['overs']) + ")"
         print "Summary:"
-        print "    " + str(cric_obj.livescore(matchid)['matchinfo']['status'])
+        print "    " + str(cric_obj.livescore(4)['matchinfo']['status'])
 
 
 def last12Balls():
     pass
 
 def commentary(matchid):
-    print "Commentary: "
-    for i in range(6):
-        print "     "+str(cric_obj.commentary(matchid)['commentary'][i])
-    print "***************************************************************************************************"
+    print "\nCommentary: "
+    try:
+        for i in range(6):
+            print "     "+str(cric_obj.commentary(matchid)['commentary'][i])
+        print "************************************************************************************************"
+    except:
+        print "No running commentary.. now..!!"
 if __name__ == '__main__':
     matchid=currentlive()
     commentary(matchid)
-
-
-
