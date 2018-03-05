@@ -1,5 +1,5 @@
 """
-    @authors: Nishanth and Nikhith !!
+    @author: Nikhith !!
 """
 from pycricbuzz import Cricbuzz
 import json
@@ -9,7 +9,7 @@ try:
     cric_obj = Cricbuzz() # cric_obj contains object instance of Cricbuzz Class
     matches = cric_obj.matches()
 except:
-    print "Connection dengindi bey!"
+    print "Connection dobhindhi bey!"
     sys.exit(0)
 
  # matches func is returning List of dictionaries
